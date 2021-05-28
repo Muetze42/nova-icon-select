@@ -7,7 +7,7 @@ composer require muetze/nova-icon-select
 
 ```php
 NovaIconSelect::make("Icon")
-->setIconProvider(FontAwesomeIconProvider::class(['solid', 'brands']));
+->setIconProvider(new FontAwesomeIconProvider(['solid', 'brands']));
 ```
 ---
 ###### @Todo:
