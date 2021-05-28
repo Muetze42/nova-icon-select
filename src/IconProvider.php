@@ -2,21 +2,21 @@
 
 namespace Bernhardh\NovaIconSelect;
 
-class IconProvider {
+class IconProvider
+{
     /**
      * @var array
      */
-    protected $options = [];
-    
+    protected array $options = [];
     
     /**
      * @return static
      */
-    public static function make(): self {
+    public static function make(): self
+    {
         return new static();
     }
-    
-    
+
     /**
      * @param string      $label
      * @param string      $value
@@ -25,17 +25,20 @@ class IconProvider {
      *
      * @return IconProvider
      */
-    public function addOption(string $label, string $value, ?string $icon, array $search = []): self {
-        if(!$icon) $icon = $value;
+    public function addOption(string $label, string $value, ?string $icon, array $search = []): self
+    {
+        if (!$icon) {
+            $icon = $value;
+        }
         
         $new = [
-            "label" => $label,
-            "value" => $value,
-            "icon" => $icon,
+            'label' => $label,
+            'value' => $value,
+            'icon' => $icon,
         ];
         
-        if($search) {
-            $new["search"] = $search;
+        if ($search) {
+            $new['search'] = $search;
         }
         
         $this->options[] = $new;
@@ -49,22 +52,22 @@ class IconProvider {
      *
      * @return $this
      */
-    public function setOptions($options): self {
+    public function setOptions(array $options): self
+    {
         $this->options = [];
         
-        foreach($options AS $key => $option) {
-            if(is_string($option)) {
+        foreach ($options as $key => $option) {
+            if (is_string($option)) {
                 $this->addOption(
                     $option,
                     $key
                 );
-            }
-            else {
+            } else {
                 $this->addOption(
-                    $option["label"],
-                    isset($option["value"]) ? $option["value"] : $key,
-                    isset($option["icon"]) ? $option["icon"] : $option["value"],
-                    isset($option["search"]) ? $option["search"] : []
+                    $option['label'],
+                    $option['value'] ?? $key,
+                    $option['icon'] ?? $option['value'],
+                    $option['search'] ?? []
                 );
             }
         }
@@ -76,7 +79,8 @@ class IconProvider {
     /**
      * @return array
      */
-    public function getOptions() {
+    public function getOptions(): array
+    {
         return $this->options;
     }
 }

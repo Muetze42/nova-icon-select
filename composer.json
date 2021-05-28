@@ -1,13 +1,15 @@
 {
-    "name": "bernhardh/nova-icon-select",
-    "description": "A larvel nova icon select field",
+    "name": "muetze/nova-icon-select",
+    "description": "A Laravel Nova icon select field",
     "keywords": [
         "laravel",
+        "fontawesome",
+        "font-awesome",
         "nova"
     ],
     "license": "MIT",
     "require": {
-        "php": ">=7.1.0"
+        "php": "^7.4|^8.0"
     },
     "autoload": {
         "psr-4": {
