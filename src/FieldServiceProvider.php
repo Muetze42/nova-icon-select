@@ -23,6 +23,7 @@ class FieldServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../config/nova-icon-select-fa-free.php' => config_path('nova-icon-select-fa-free.php'),
+            __DIR__.'/../config/nova-icon-select-fa-pro.php' => config_path('nova-icon-select-fa-pro.php'),
         ]);
     }
 
